@@ -111,7 +111,7 @@ Hier findet ihr eine Übersicht der wichtigsten Linux-Befehle.
 
 ## Prozesse und Dienste
 * `ps aux` – Zeigt alle laufenden Prozesse.
-* `systemctl` status dienstname – Status eines bestimmten Dienstes.
+* `systemctl status dienstname` – Status eines bestimmten Dienstes.
 * `service --status-all` – Übersicht aller Dienste.
 
 ## Hardware-Informationen
