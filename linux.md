@@ -1,7 +1,5 @@
 # Übersicht der wichtigsten Linux Befehle
-
-Hier findet ihr eine Übersicht der wichtigsten Linux-Befehle, die euch den Alltag mit dem Terminal erleichtern. Egal ob ihr Dateien verwalten, Infos über euer System checken oder einfach schnell was erledigen wollt – diese Sammlung hilft euch weiter. Sie ist sowohl für Einsteiger als auch für erfahrene Nutzer ein praktisches Nachschlagewerk.
-
+Hier findet ihr eine Übersicht der wichtigsten Linux-Befehle.
 
 ## Datei- und Verzeichnisverwaltung
 * `ls` – Listet Dateien und Verzeichnisse:
