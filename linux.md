@@ -1,3 +1,9 @@
+# Übersicht der wichtigsten Linux Befehler
+
+Hier findet ihr eine Übersicht der wichtigsten Linux-Befehle, die euch den Alltag mit dem Terminal erleichtern. Egal ob ihr Dateien verwalten, Infos über euer System checken oder einfach schnell was erledigen wollt – diese Sammlung hilft euch weiter. Sie ist sowohl für Einsteiger als auch für erfahrene Nutzer ein praktisches Nachschlagewerk.
+
+➡️ Schau dir die Liste auf GitHub an: [Linux Befehler ](https://github.com/zerlix/Howto-s/blob/main/linux.md)
+
 ## Datei- und Verzeichnisverwaltung
 * `ls` – Listet Dateien und Verzeichnisse:
   * `ls -l` – Detaillierte Ansicht.
@@ -121,3 +127,5 @@
 * `glances` – Übersichtliches Monitoring-Tool (muss installiert werden).
 * `iotop` – Überwachung der I/O-Operationen.
 * `dstat` – Echtzeit-Statistiken zu CPU, RAM, Netzwerk und mehr.
+
+
