@@ -92,19 +92,22 @@ Während die VM startet, kannst du die Installation im Terminal verfolgen und An
 Nachdem du eine virtuelle Maschine erstellt hast, wirst du möglicherweise feststellen, dass du sie starten, stoppen oder neu starten musst. Hier sind die grundlegenden Schritte, um diese Aktionen mit Libvirt durchzuführen:
 
 ### Starten einer virtuellen Maschine:<br/>
-Um eine virtuelle Maschine zu starten, verwende den Befehl `virsh start <name_der_virtuellen_maschine>`. 
+Um eine virtuelle Maschine zu starten, verwende den Befehl<br/>
+`virsh start <name_der_virtuellen_maschine>`. 
 
 Zum Beispiel:<br/>
 `virsh start mydebian`
 
 ### Stoppen einer virtuellen Maschine:<br/>
-Um eine laufende virtuelle Maschine zu stoppen, verwende den Befehl `virsh shutdown <name_der_virtuellen_maschine>`. 
+Um eine laufende virtuelle Maschine zu stoppen, verwende den Befehl<br/>
+`virsh shutdown <name_der_virtuellen_maschine>`. 
 
 Zum Beispiel:<br/>
 `virsh shutdown mydebian`
 
 ### Neustarten einer virtuellen Maschine:<br/>
-Um eine virtuelle Maschine neu zu starten, verwende den Befehl `virsh reboot <name_der_virtuellen_maschine>`. 
+Um eine virtuelle Maschine neu zu starten, verwende den Befehl<br/>
+`virsh reboot <name_der_virtuellen_maschine>`. 
 
 Zum Beispiel:<br/>
 `virsh reboot mydebian`
@@ -115,3 +118,13 @@ Zum Beispiel:<br/>
  
  Zum Beispiel:<br/>
 ` virsh snapshot-create-as mydebian snapshot1`
+
+### Wiederherstellen eines Snapshots: <br/>
+Um eine virtuelle Maschine aus einem Snapshot wiederherzustellen, verwende den Befehl<br/>
+`virsh snapshot-revert <name_der_virtuellen_maschine> <snapshot_name>`. 
+
+Zum Beispiel:<br/>
+`virsh snapshot-revert mydebian snapshot1`
+
+⚠ Bitte beachte, dass während der Wiederherstellung einer virtuellen Maschine aus einem Snapshot alle Änderungen seit dem Zeitpunkt des Snapshots verloren gehen.
+
