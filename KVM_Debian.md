@@ -48,6 +48,15 @@ Um eine Netzwerkbrücke unter Debian einzurichten, geh einfach wie folgt vor:
     Benutze den Befehl `ip -f inet a s`, um deine physische Schnittstelle zu finden. Diese könnte zum Beispiel `enp4s0 `oder `eth0 `heißen.
 2. Installiere bridge-utils:<br/>
     Stell sicher, dass das Paket bridge-utils installiert ist, da du es zur Verwaltung von Netzwerkbrücken brauchst. Installier es einfach mit diesem Befehl:
+    `apt-get install bridge-utils`
+3. Aktualisiere die Datei `/etc/network/interfaces`:<br/>
+    Achte darauf, dass in der Datei nur die Loopback-Schnittstelle (lo) aktiv ist. Alles, was mit deiner physischen Schnittstelle (z.B. enp4s0) zu tun hat, sollte entfernt werden.
+    Beispielinhalt für die Datei  `/etc/network/interfaces`:
     ```bash
-    apt-get install bridge-utils
+    # This file describes the network interfaces available on your system
+    # and how to activate them. For more information, see interfaces(5).
+    source /etc/network/interfaces.d/*
+    # The loopback network interface
+    auto lo
+    iface lo inet loopback
     ```
