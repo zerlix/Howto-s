@@ -2,7 +2,7 @@
 
 **Libvirt** ist eine Open-Source-Bibliothek und ein Toolset zur Verwaltung von virtuellen Maschinen und Ressourcen wie Speicher und Netzwerken. Es bietet eine einheitliche Schnittstelle für verschiedene Virtualisierungslösungen auf Linux und erleichtert die Automatisierung von Virtualisierungsaufgaben. Ideal für Admins und Entwickler, die VMs effizient verwalten wollen.
 
-### Warum Libvirt ?
+**Warum Libvirt ?**
 
 * Unterstützt verschiedene Virtualisierungstechnologien wie KVM, QEMU und Xen.
 * Einheitliche API für verschiedene Virtualisierungstools.
@@ -62,3 +62,38 @@ Libvirt bietet verschiedene Netzwerkoptionen für virtuelle Maschinen, einschlie
 Damit ist die Bridge erfolgreich für die Verwendung durch Libvirt konfiguriert. Du kannst nun virtuelle Maschinen erstellen und sie so konfigurieren, dass sie das br0-Netzwerk verwenden.
 
 # 4. Verwaltung von virtuellen Maschinen mit Libvirt
+Libvirt bietet verschiedene Möglichkeiten zur Verwaltung von VMs. Hier schauen wir uns die grundlegenden Befehle zum Erstellen, Starten, Stoppen und Neustarten von VMs an.
+
+**Erstellen einer virtuellen Maschine**
+Du kannst entweder die Befehlszeilenschnittstelle (virsh) nutzen oder eine grafische Oberfläche wie virt-manager. In diesem Tutorial konzentrieren wir uns auf die CLI.
+
+Hier ein Beispiel, um eine VM mit Libvirt zu erstellen:<br/>
+```bash
+virt-install \
+--name mydebian \
+--memory 4096 \
+--vcpus 4 \
+--disk size=20 \
+--location /srv/iso/debian-12.5.0-amd64-netinst.iso \
+--network bridge=br0 \
+--os-variant debiantesting \
+--graphics none \
+--extra-args "console=ttyS0"
+```
+
+Der folgende Befehl erstellt eine VM mit dem Namen "mydebian", 4 GB RAM, 4 vCPUs, einer 20 GB großen virtuellen Festplatte, einem ISO-Image zur Installation und einer Netzwerkverbindung über die Bridge br0.
+
+**⚠ Wichtig:** Ersetze `/root/iso/debian-12.5.0-amd64-netinst.iso` mit dem tatsächlichen Pfad zu deinem ISO-Image!
+
+Während die VM startet, kannst du die Installation im Terminal verfolgen und Anweisungen zur Konfiguration befolgen. Nach Abschluss der Installation sollte die VM über br0 ins Netzwerk kommen und einsatzbereit sein. 🚀
+
+## Starten, Stoppen von virtuellen Maschinen mit Libvirt
+
+Nachdem du eine virtuelle Maschine erstellt hast, wirst du möglicherweise feststellen, dass du sie starten, stoppen oder neu starten musst. Hier sind die grundlegenden Schritte, um diese Aktionen mit Libvirt durchzuführen:
+
+**Starten einer virtuellen Maschine:**<br/>
+
+Um eine virtuelle Maschine zu starten, verwende den Befehl `virsh start <name_der_virtuellen_maschine>`. 
+
+Zum Beispiel:<br/>
+`virsh start mydebian`
