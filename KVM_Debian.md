@@ -97,3 +97,39 @@ Um eine Netzwerkbrücke unter Debian einzurichten, geh einfach wie folgt vor:
         bridge_waitport 0    # Keine Verzögerung, bis ein Port verfügbar wird
         bridge_fd 0          # Keine Weiterleitungsverzögerung
     ```
+# Neustarten des Netzwerkdienstes in Linux:
+
+Bevor du den Netzwerkdienst neu startest, solltest du sicherstellen, dass die Firewall deaktiviert ist. Denn die Firewall-Regel könnte noch auf die alte Schnittstelle (z.B. `enp4s0`) verweisen. Nach dem Neustart musst du dann die Firewall-Regel für die neue Schnittstelle (br0) anpassen.
+
+1. Verwende den folgenden Befehl, um den Netzwerkdienst neu zu starten:<br/>
+`systemctl restart networking`
+
+2. Überprüfe anschließend, ob der Dienst erfolgreich neu gestartet wurde:<br/>
+`systemctl status networking`
+
+# Installation
+
+Sobald du bestätigt hast, dass dein System Virtualisierung unterstützt, kannst du KVM auf Debian 12 installieren. Einfach den folgenden Befehl ausführen:
+
+```bash
+apt install qemu-kvm qemu-utils libvirt-daemon-system virtinst bridge-utils
+```
+* qemu-kvm:
+    QEMU ist ein Open-Source-Virtualisierer, mit dem du virtuelle Maschinen auf deinem Host-System laufen lassen kannst. Das Paket qemu-system enthält die Hauptkomponenten von QEMU, die du zum Erstellen und Ausführen von VMs brauchst.
+
+* qemu-utils:
+    Dieses Paket enthält nützliche Hilfsprogramme und Tools, die mit QEMU verbunden sind. Dazu gehören Funktionen wie die Konvertierung von Disk-Images oder das Erstellen von Snapshots.
+
+* libvirt-daemon-system:
+    Libvirt ist ein Toolkit und eine API zur Verwaltung von virtuellen Maschinen und anderen Virtualisierungsressourcen. Das Paket libvirt-daemon-system enthält den libvirt-Daemon, der die Hauptkomponente von libvirt ist und die Verwaltung von VMs ermöglicht.
+
+* virtinst:
+    Das Paket virtinst ist ein Kommandozeilen-Tool zum Erstellen und Verwalten von virtuellen Maschinen auf Systemen, die libvirt verwenden. Es vereinfacht das Erstellen neuer VMs durch eine einfache Befehlsschnittstelle.
+
+* qemu-utils:
+    Dieses Paket enthält nützliche Hilfsprogramme und Tools, die mit QEMU verbunden sind. Dazu gehören Funktionen wie die Konvertierung von Disk-Images oder das Erstellen von Snapshots.
+
+* bridge-utils:
+ist ein Paket, das Tools zur Verwaltung von Netzwerkbrücken bereitstellt. 
+
+Mit der Installation dieser Pakete bekommst du eine komplette Virtualisierungsumgebung auf deinem Debian 12-System, mit der du VMs erstellen, verwalten und ausführen kannst.
