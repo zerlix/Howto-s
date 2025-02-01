@@ -128,3 +128,11 @@ Zum Beispiel:<br/>
 
 ⚠ Bitte beachte, dass während der Wiederherstellung einer virtuellen Maschine aus einem Snapshot alle Änderungen seit dem Zeitpunkt des Snapshots verloren gehen.
 
+# 5. Verwendung von virt-manager<br/>
+virt-manager ist eine grafische Benutzeroberfläche (GUI), die es ermöglicht, virtuelle Maschinen zu verwalten und zu überwachen. Mit virt-manager kannst du virtuelle Maschinen erstellen, starten, stoppen, überwachen und vieles mehr, alles über eine benutzerfreundliche Oberfläche.
+
+Um virt-manager zu verwenden, installiere es auf deinem System mit:<br/>
+`apt install virt-manager`
+
+Starte dann virt-manager mit: `virt-manager`
+
