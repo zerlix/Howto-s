@@ -114,22 +114,19 @@ Sobald du bestätigt hast, dass dein System Virtualisierung unterstützt, kannst
 ```bash
 apt install qemu-kvm qemu-utils libvirt-daemon-system virtinst bridge-utils
 ```
-* qemu-kvm:
+* qemu-kvm:<br/>
     QEMU ist ein Open-Source-Virtualisierer, mit dem du virtuelle Maschinen auf deinem Host-System laufen lassen kannst. Das Paket qemu-system enthält die Hauptkomponenten von QEMU, die du zum Erstellen und Ausführen von VMs brauchst.
 
-* qemu-utils:
+* qemu-utils:<br/>
     Dieses Paket enthält nützliche Hilfsprogramme und Tools, die mit QEMU verbunden sind. Dazu gehören Funktionen wie die Konvertierung von Disk-Images oder das Erstellen von Snapshots.
 
-* libvirt-daemon-system:
+* libvirt-daemon-system:<br/>
     Libvirt ist ein Toolkit und eine API zur Verwaltung von virtuellen Maschinen und anderen Virtualisierungsressourcen. Das Paket libvirt-daemon-system enthält den libvirt-Daemon, der die Hauptkomponente von libvirt ist und die Verwaltung von VMs ermöglicht.
 
-* virtinst:
+* virtinst:<br/>
     Das Paket virtinst ist ein Kommandozeilen-Tool zum Erstellen und Verwalten von virtuellen Maschinen auf Systemen, die libvirt verwenden. Es vereinfacht das Erstellen neuer VMs durch eine einfache Befehlsschnittstelle.
 
-* qemu-utils:
-    Dieses Paket enthält nützliche Hilfsprogramme und Tools, die mit QEMU verbunden sind. Dazu gehören Funktionen wie die Konvertierung von Disk-Images oder das Erstellen von Snapshots.
-
-* bridge-utils:
+* bridge-utils:<br/>
 ist ein Paket, das Tools zur Verwaltung von Netzwerkbrücken bereitstellt. 
 
 Mit der Installation dieser Pakete bekommst du eine komplette Virtualisierungsumgebung auf deinem Debian 12-System, mit der du VMs erstellen, verwalten und ausführen kannst.
