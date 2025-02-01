@@ -87,13 +87,31 @@ Der folgende Befehl erstellt eine VM mit dem Namen "mydebian", 4 GB RAM, 4 vCPUs
 
 Während die VM startet, kannst du die Installation im Terminal verfolgen und Anweisungen zur Konfiguration befolgen. Nach Abschluss der Installation sollte die VM über br0 ins Netzwerk kommen und einsatzbereit sein. 🚀
 
-## Starten, Stoppen von virtuellen Maschinen mit Libvirt
+## Grundlagen virtuellen Maschinen mit Libvirt
 
 Nachdem du eine virtuelle Maschine erstellt hast, wirst du möglicherweise feststellen, dass du sie starten, stoppen oder neu starten musst. Hier sind die grundlegenden Schritte, um diese Aktionen mit Libvirt durchzuführen:
 
-**Starten einer virtuellen Maschine:**<br/>
-
+### Starten einer virtuellen Maschine:<br/>
 Um eine virtuelle Maschine zu starten, verwende den Befehl `virsh start <name_der_virtuellen_maschine>`. 
 
 Zum Beispiel:<br/>
 `virsh start mydebian`
+
+### Stoppen einer virtuellen Maschine:<br/>
+Um eine laufende virtuelle Maschine zu stoppen, verwende den Befehl `virsh shutdown <name_der_virtuellen_maschine>`. 
+
+Zum Beispiel:<br/>
+`virsh shutdown mydebian`
+
+### Neustarten einer virtuellen Maschine:<br/>
+Um eine virtuelle Maschine neu zu starten, verwende den Befehl `virsh reboot <name_der_virtuellen_maschine>`. 
+
+Zum Beispiel:<br/>
+`virsh reboot mydebian`
+
+ ### Erstellen eines Snapshots:<br/>
+ Um einen Snapshot einer virtuellen Maschine zu erstellen, verwende den Befehl<br/>
+  `virsh snapshot-create-as <name_der_virtuellen_maschine> <snapshot_name>`. 
+ 
+ Zum Beispiel:<br/>
+` virsh snapshot-create-as mydebian snapshot1`
