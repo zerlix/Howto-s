@@ -44,11 +44,14 @@ Wichtig: Die Virtualisierungsfunktionen müssen auch im BIOS/UEFI aktiviert sein
 Eine Netzwerkbrücke ermöglicht es virtuellen Maschinen, direkt mit dem physischen Netzwerk zu kommunizieren, als wären sie eigenständige Maschinen. Das ist besonders praktisch, wenn du möchtest, dass deine virtuellen Maschinen von anderen Geräten im Netzwerk erreicht werden können oder wenn du bestimmte Netzwerkdienste darauf bereitstellen willst.
 
 Um eine Netzwerkbrücke unter Debian einzurichten, geh einfach wie folgt vor:
+
 1. Ermittle deine physische Schnittstelle:<br/>
     Benutze den Befehl `ip -f inet a s`, um deine physische Schnittstelle zu finden. Diese könnte zum Beispiel `enp4s0 `oder `eth0 `heißen.
+
 2. Installiere bridge-utils:<br/>
     Stell sicher, dass das Paket bridge-utils installiert ist, da du es zur Verwaltung von Netzwerkbrücken brauchst. Installier es einfach mit diesem Befehl:
     `apt-get install bridge-utils`
+
 3. Aktualisiere die Datei `/etc/network/interfaces`:<br/>
     Achte darauf, dass in der Datei nur die Loopback-Schnittstelle (lo) aktiv ist. Alles, was mit deiner physischen Schnittstelle (z.B. enp4s0) zu tun hat, sollte entfernt werden.
     Beispielinhalt für die Datei  `/etc/network/interfaces`:
@@ -59,4 +62,38 @@ Um eine Netzwerkbrücke unter Debian einzurichten, geh einfach wie folgt vor:
     # The loopback network interface
     auto lo
     iface lo inet loopback
+    ```
+
+4. Konfigurieren der Brücke (br0) in der Datei `/etc/network/interfaces.d/br0`:
+    Öffne oder erstelle eine Datei und füge die passende Konfiguration hinzu.
+    Beispielinhalt für die Datei, je nachdem, ob du DHCP oder eine statische IP nutzen möchtest:
+    ## DHCP-Konfiguration:
+    ```bash
+    # DHCP Konfigurationsdatei für br0 ##
+    auto br0
+    # Bridge-Konfiguration
+    iface br0 inet dhcp
+    bridge_ports enp4s0
+    ```
+
+    ## Statische IP-Konfiguration:
+    ```bash
+    ## Statische IP Konfigurationsdatei für br0 ##
+    auto br0
+    
+    # Bridge-Konfiguration
+    iface br0 inet static
+        address 192.168.0.200
+        broadcast 192.168.0.255
+        netmask 255.255.255.0
+        gateway 192.168.0.1
+        # Wenn das Paket resolvconf installiert ist, solltest su die resolv.conf-Konfigurationsdatei
+        # nicht manuell bearbeiten. Lege hier die Namensserver fest.
+        # dns-nameservers 192.168.2.254
+        # Wenn du mehrere Schnittstellen wie eth0 und eth1 haben solltest
+        # bridge_ports eth0 eth1
+        bridge_ports enp4s0
+        bridge_stp off       # Spanning Tree Protocol deaktivieren
+        bridge_waitport 0    # Keine Verzögerung, bis ein Port verfügbar wird
+        bridge_fd 0          # Keine Weiterleitungsverzögerung
     ```
