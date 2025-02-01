@@ -132,3 +132,4 @@ ist ein Paket, das Tools zur Verwaltung von Netzwerkbrücken bereitstellt.
 Mit der Installation dieser Pakete bekommst du eine komplette Virtualisierungsumgebung auf deinem Debian 12-System, mit der du VMs erstellen, verwalten und ausführen kannst.
 
 Weiter geht es mit den Grundlagen von Libvirt:
+[Einführung in libvirt](https://github.com/zerlix/Howtos/blob/main/libvirt_Debian.md)
